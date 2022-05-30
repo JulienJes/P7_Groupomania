@@ -1,5 +1,3 @@
-const UserModel = require('../models/user');
-
 exports.signUpErrors = (error) => {
     let errors = { pseudo: "", email: "", password: "" };
   
