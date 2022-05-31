@@ -24,15 +24,15 @@ app.use((req, res, next) => {
   next();
 });
 
+// Parsers
+app.use(express.json());
+app.use(cookieParser());
+
 // Jwt
 app.get('*', checkUser);
 app.get('/jwtid', requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id)
 });
-
-// Parsers
-app.use(express.json());
-app.use(cookieParser());
 
 // Routes
 app.use('/api/user', userRoutes);

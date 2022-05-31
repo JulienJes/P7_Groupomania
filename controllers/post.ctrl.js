@@ -18,7 +18,7 @@ exports.readPost = (req, res, next) => {
 
 exports.createPost = async (req, res, next) => {
     let fileName;
-
+    
     if (req.file !== null) {
         try {
             if (req.file.detectedMimeType !== 'image/jpg' &&

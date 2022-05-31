@@ -1,8 +1,8 @@
 const UserModel = require('../models/user');
 const ObjectID = require('mongoose').Types.ObjectId; // pour vérifier que le paramêtre existe déjà dans la BDD
 
-exports.getAllUsers = async (req, res, next) => {
-    const users = await UserModel.find().select('-email -password'); //on récupère tous les users
+exports.getAllUsers = async (req, res) => {
+    const users = await UserModel.find().select('-password'); //on récupère tous les users
     res.status(200).json(users);
 }
 
