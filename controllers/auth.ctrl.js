@@ -30,7 +30,7 @@ exports.signIn = async (req, res, next) => {
         const user = await UserModel.login(email, password);
         const token = createToken(user._id);
         res.cookie('jwt', token, {httpOnly: true, maxAge});
-        res.status(200).json('user: user._id');
+        res.status(200).json("user:" + user._id);
     } catch (error) {
         const errors = signInErrors(error);
         res.status(400).json({errors});
