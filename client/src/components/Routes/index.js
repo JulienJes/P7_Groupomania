@@ -9,9 +9,9 @@ function Index() {
     <div>
         <Router>
             <Routes>
-                <Route path="/" exact component={Home} />
-                <Route path="/profil" exact component={Profil} />
-                <Route path="/trending" exact component={Trending} />
+                <Route path="/" exact element={Home} />
+                <Route path="/profil" exact element={Profil} />
+                <Route path="/trending" exact element={Trending} />
                 <Navigate to="/" />
             </Routes>
         </Router>
