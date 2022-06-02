@@ -1,7 +1,9 @@
 import { UidContext } from "./components/AppContext";
 import { useEffect, useState } from "react";
-import Routes from "./components/Routes";
 import axios from "axios";
+import Navbar from "./components/Navbar";
+import Index from "./components/Routes";
+
 
 function App() {
   const [uid, setUid] = useState(null); //obtention de l'ID utilisateur
@@ -21,11 +23,10 @@ function App() {
   }, [uid]);
 
   return (
-    <div>
       <UidContext.Provider value={uid}> {/*on stock le user ID dans les hooks de l'app pour contextualiser l'ensemble de l'application*/}
-        <Routes />
+        <Navbar />
+        <Index />
       </UidContext.Provider>
-    </div>
   );
 }
 
