@@ -8,11 +8,11 @@ function Index() {
   return (
     <div>
         <Router>
-            <Routes>
-                <Route path="/" exact element={<Home />} />
-                <Route path="/profil" exact element={<Profil />} />
-                <Route path="/trending" exact element={<Trending />} />
-            </Routes>
+          <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/profil" exact element={<Profil />} />
+              <Route path="/trending" exact element={<Trending />} />
+          </Routes>
         </Router>
     </div>
   );
