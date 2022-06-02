@@ -1,0 +1,19 @@
+--------------------- CONFIGURATION ---------------------
+Lancez `npm i` dans le terminal de commande pour installer les dépendances du back à partir du dossier racine.
+Faites de même à partir de /client pour les dépendances du front.
+
+Créez un fichier .env dans /config selon l'exemple fourni dans le même dossier
+
+CONNEXION A MONGODB ---------------------
+Renseignez dans .env les valeurs de votre base de donnée MongoDB.
+
+TOKEN_SECRET ---------------------
+Renseignez le Token jsonwebtoken de votre choix dans .env.
+
+LANCEMENT DES SEVEURS ---------------------
+Si aucun port n'est renseigné dans .env, le port utilisé pour le back sera 5000 (port recommandé).
+
+Renseignez la valeur de votre port dans .env pour avoir un port personnalisé.
+Si vous optez pour un port personnalisé, il faut IMPERATIVEMENT modifier 5000 par la valeur de votre port dans /client/screen/.env.
+
+Lancer la commande `npm start` depuis le dossier racine puis depuis /client; l'application apparaitra alors automatiquement dans votre navigateur.
