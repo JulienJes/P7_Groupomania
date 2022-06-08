@@ -21,7 +21,7 @@ exports.userInfo = (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
     if (!ObjectID.isValid(req.params.id)) {
-        //return res.status(400).json('ID Unknown : ' + req.params.id);
+        return res.status(400).json('ID Unknown : ' + req.params.id);
     } else {
         try {
             await UserModel.findOneAndUpdate(
@@ -31,10 +31,10 @@ exports.updateUser = async (req, res, next) => {
                 (error, docs) => {
                     if (!error) {
                         console.log("ici c'est le !error !");
-                        //return res.status(200).send(docs);
+                        return res.status(200).send(docs);
                     } else {
                         console.log("ici c'est le error !");
-                        //return res.status(500).json({message : error});
+                        return res.status(500).json({message : error});
                     }
                 }
             )
