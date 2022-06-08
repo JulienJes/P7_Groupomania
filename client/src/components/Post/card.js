@@ -5,7 +5,7 @@ import dateParser, { isEmpty } from '../../utils/Utils';
 function Card({ post }) {
     const [isLoading, setIsLoading] = useState(true);
     const usersData = useSelector((state) => state.usersReducer);
-    const userData = useSelector((state) => state.userReducer);
+    //const userData = useSelector((state) => state.userReducer);
 
     useEffect(() => {
         !isEmpty(usersData[0]) && setIsLoading(false);

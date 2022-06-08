@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import './styles/index.scss'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, legacy_createStore as createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension'; //dev
 import Logger from 'redux-logger'; //dev
 import thunk from 'redux-thunk';
