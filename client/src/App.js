@@ -9,7 +9,7 @@ import getUser from "./actions/user.actions";
 
 function App() {
   const [uid, setUid] = useState(null); //obtention de l'ID utilisateur
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchToken = async() => {

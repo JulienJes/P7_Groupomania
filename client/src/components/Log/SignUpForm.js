@@ -10,7 +10,7 @@ function SignUpForm() {
     const [controlPassword, setControlPassword] = useState('');
 
     const handleRegister = async(e) => {
-        e.preventdefault();
+        e.preventDefault();
         const pseudoError = document.querySelector('.pseudo.error');
         const emailError = document.querySelector('.email.error');
         const passwordError = document.querySelector('.password.error');

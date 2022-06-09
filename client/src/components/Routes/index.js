@@ -10,7 +10,6 @@ function Index() {
       <Route path="/profil" exact element={<Profil />} />
       <Route path="/trending" exact element={<Trending />} />
     </Routes>
-
   );
 }
 

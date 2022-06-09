@@ -6,15 +6,26 @@ import Card from "./Post/card";
 
 function Thread() {
     const [loadPost, setLoadPost] = useState(true);
-    const dispatch = useDispatch();
+    const [count, setCount] = useState(5); //affichage de 5 posts par 5 posts en vue de l'infinite scroll
+    const dispatch = useDispatch(count);
     const posts = useSelector((state) => state.postReducer);
+
+    const loadMore = () => {
+        if (window.innerHeight + document.documentElement.scrollTop + 1 > document.scrollingElement.scrollHeight) {
+            setLoadPost(true)
+        }
+    }
 
     useEffect (() => {
         if (loadPost) {
             dispatch(getPosts());
-            setLoadPost(false)
+            setLoadPost(false);
+            setCount(count + 5 );
         }
-    }, [loadPost, dispatch])
+
+        window.addEventListener('scroll', loadMore);
+        return() => window.removeEventListener('scroll', loadMore);
+    }, [loadPost, dispatch, count])
 
     return(
         <div className="thread-container">
