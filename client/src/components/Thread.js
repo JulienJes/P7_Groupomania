@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from 'react'
 import getPosts from '../actions/post.actions'
 import { isEmpty } from "../utils/Utils";
-import Card from "./Post/card";
+import Card from "./Post/Card";
 
 function Thread() {
     const [loadPost, setLoadPost] = useState(true);
