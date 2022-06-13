@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
     password: { type: String, required: true, minlength: 8 },
     picture: {type: String, default: "../client/public/uploads/profil/default-user-pic.png" },
     bio: {type: String, maxlenght: 1024 },
-    likes: { type: [String] }
+    likes: { type: [String] },
+    admin: { type: Boolean, default: false}
   },
   {
     timestamps: true,
