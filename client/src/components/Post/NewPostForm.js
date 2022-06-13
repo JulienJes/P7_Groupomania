@@ -55,8 +55,10 @@ function NewPostForm(){
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
                 <>
-                <NavLink className="user-info" exact="true" to="/profil">
+                <NavLink exact="true" to="/profil">
+                    <div className="user-info">
                         <img src={userData.picture} alt="Avatar"/>
+                    </div>
                 </NavLink>
                 <div className="post-form">
                     <textarea
@@ -66,6 +68,7 @@ function NewPostForm(){
                         onChange={(e) => setMessage(e.target.value)}
                         value={message}
                     />
+                    <label for="message">Publication</label>
                     {message || postPicture ? (
                         <li className="card-container">
                             <div className="card-left">
@@ -90,6 +93,7 @@ function NewPostForm(){
                             <>
                                 <img src="./img/icons/picture.svg" alt="upload"/>
                                 <input type="file" id="file-upload" name="file" accept=".jpg, .jpeg, .png" onChange={(e) => handlePicture(e)} />
+                                <label for="file-upload">Image</label>
                             </>
                         </div>
                         {!isEmpty(error.format) && <p>{error.format}</p>}

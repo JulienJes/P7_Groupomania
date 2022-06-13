@@ -16,7 +16,7 @@ function Navbar() {
                     <NavLink exact="true" to="/">
                         <div className="logo">
                             <img src="./img/icon.png" alt="Logo Groupomania"/>
-                            <h3>Groupomania</h3>
+                            <h1>Groupomania</h1>
                         </div>
                     </NavLink>
                 </div>                
@@ -25,7 +25,7 @@ function Navbar() {
                         <li></li>
                         <li className="welcome"></li>
                         <NavLink exact="true" to="/profil">
-                            <h5>Bienvenue {userData.pseudo}</h5>
+                            <span>Bienvenue {userData.pseudo}</span>
                         </NavLink>
                         <Logout />
                     </ul>

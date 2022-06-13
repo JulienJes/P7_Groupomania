@@ -21,7 +21,7 @@ function UpdateProfil() {
     return(
         <div className="profil-container">
             <LeftNav />
-            <h1> Profil de {userData.pseudo}</h1>
+            <h2> Profil de {userData.pseudo}</h2>
             <div className='update-container'>
                 <div className='left-part'>
                     <h3>Photo de profil</h3>

@@ -7,7 +7,7 @@ function Profil() {
   const uid = useContext(UidContext);
   return (
     <div className="profil-page">
-      {uid ? ( //contextualisation avec uid
+      {uid ? (
         <UpdateProfil />
       ): (
         <div className="log-container">

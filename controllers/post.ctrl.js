@@ -17,7 +17,7 @@ exports.readPost = (req, res, next) => {
 }
 
 exports.createPost = async (req, res, next) => {
-    let fileName;
+    /*let fileName;
     
     if (req.file !== null) {
         try {
@@ -43,7 +43,7 @@ exports.createPost = async (req, res, next) => {
                 `${__dirname}/../client/public/uplads/posts/${fileName}`
             )
         )
-    }
+    }*/
 
     const newPost = new PostModel( {
         posterId: req.body.posterId,
