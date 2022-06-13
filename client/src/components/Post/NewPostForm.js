@@ -55,10 +55,8 @@ function NewPostForm(){
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
                 <>
-                <NavLink exact to="/profil">
-                    <div className="user-info">
+                <NavLink className="user-info" exact="true" to="/profil">
                         <img src={userData.picture} alt="Avatar"/>
-                    </div>
                 </NavLink>
                 <div className="post-form">
                     <textarea

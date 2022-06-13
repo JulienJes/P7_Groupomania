@@ -26,7 +26,7 @@ exports.uploadProfil = async (req, res) => {
     await pipeline(
         req.file.stream,
         fs.createWriteStream(
-            `${__dirname}/../client/public/uplads/profil/${fileName}`
+            `${__dirname}/client/public/uplads/profil/${fileName}`
         )
     )
 

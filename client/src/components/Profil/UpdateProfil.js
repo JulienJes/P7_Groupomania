@@ -10,7 +10,7 @@ function UpdateProfil() {
     const userData = useSelector((state) => state.userReducer)
     const [bio, setBio] = useState('');
     const [updateForm, setUpdateForm] = useState(false);
-    const error = useSelector((state) => errorReducer.userError);
+    const error = useSelector((state) => state.errorReducer.userError);
     const dispatch = useDispatch();
 
     const handleUpdate = () => {

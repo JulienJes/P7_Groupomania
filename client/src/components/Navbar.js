@@ -13,7 +13,7 @@ function Navbar() {
         <nav>
             <div className="nav-container">
                 <div className="logo">
-                    <NavLink exact to="/">
+                    <NavLink exact="true" to="/">
                         <div className="logo">
                             <img src="./img/icon.png" alt="Logo Groupomania"/>
                             <h3>Groupomania</h3>
@@ -24,7 +24,7 @@ function Navbar() {
                     <ul>
                         <li></li>
                         <li className="welcome"></li>
-                        <NavLink exact to="/profil">
+                        <NavLink exact="true" to="/profil">
                             <h5>Bienvenue {userData.pseudo}</h5>
                         </NavLink>
                         <Logout />
@@ -32,8 +32,8 @@ function Navbar() {
                 ) : (
                     <ul>
                         <li></li>
-                        <NavLink exact to="/profil">
-                            <img src=".img/icons/login.svg" alt="Login"/>
+                        <NavLink exact="true" to="/profil">
+                            <img src="./img/icons/login.svg" alt="Login"/>
                         </NavLink>
                     </ul>
                 )}

@@ -24,7 +24,7 @@ function Trends() {
     return(
         <div className="trending-container">
             <h4>Trending</h4>
-            <NavLink exact to="/trending" />
+            <NavLink exact="true" to="/trending" />
                 <ul>
                     {trendList.length &&
                     trendList.map((post) => {

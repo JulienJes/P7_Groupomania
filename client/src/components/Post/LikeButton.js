@@ -29,10 +29,10 @@ function LikeButton({ post }) {
     return(
         <div className='Like-container'>
             {uid && liked === false && (
-                <img src=".img/icons/heart.svg" onClick={like} alt="like" />
+                <img src="./img/icons/heart.svg" onClick={like} alt="like" />
             )}
             {uid && liked && (
-                <img src=".img/icons/heart-filled.svg" onClick={unlike} alt="unlike"/>
+                <img src="./img/icons/heart-filled.svg" onClick={unlike} alt="unlike"/>
             )}
             <span>{post.likers.length}</span>
         </div>

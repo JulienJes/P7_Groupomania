@@ -6,9 +6,9 @@ import Trending from '../../pages/Trending.js';
 function Index() {
   return (
     <Routes>
-      <Route path="/" exact element={<Home />} />
-      <Route path="/profil" exact element={<Profil />} />
-      <Route path="/trending" exact element={<Trending />} />
+      <Route path="/" exact="true" element={<Home />} />
+      <Route path="/profil" exact="true" element={<Profil />} />
+      <Route path="/trending" exact="true" element={<Trending />} />
     </Routes>
   );
 }

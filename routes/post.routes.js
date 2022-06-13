@@ -6,16 +6,16 @@ const upload = multer();
 const postCtrl = require('../controllers/post.ctrl');
 
 // post-body
-router.get('/', postCtrl.readPost);
-router.post('/', upload.single("file"), postCtrl.createPost);
-router.put('/:id', postCtrl.updatePost);
-router.delete('/:id', postCtrl.deletePost);
-router.patch('/like-post/:id', postCtrl.likePost);
-router.patch('/unlike-post/:id', postCtrl.unLikePost);
+router.get('/', postCtrl.readPost); //route OK
+router.post('/', upload.single("file"), postCtrl.createPost); // version simple ok, problème de la ligne 20 à 46 (ajouter quelque chose dans la requete?)
+router.put('/:id', postCtrl.updatePost); //route OK
+router.delete('/:id', postCtrl.deletePost); //route OK
+router.patch('/like-post/:id', postCtrl.likePost); //erreur mais ne fait pas planter l'appli et met à jour
+router.patch('/unlike-post/:id', postCtrl.unLikePost); //erreur mais ne fait pas planter l'appli et met à jour
 
 // post-comments
-router.patch('/comment-post/:id', postCtrl.commentPost);
-router.patch('/edit-comment-post/:id', postCtrl.editCommentPost);
-router.patch('/delete-comment-post/:id', postCtrl.deleteCommentPost);
+router.patch('/comment-post/:id', postCtrl.commentPost); //route ok mais timestamp???
+router.patch('/edit-comment-post/:id', postCtrl.editCommentPost); //est-ce que je m'y prends bien?
+router.patch('/delete-comment-post/:id', postCtrl.deleteCommentPost); //est-ce que je m'y prends bien?
 
 module.exports = router;

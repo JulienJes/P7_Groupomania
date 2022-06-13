@@ -4,7 +4,7 @@ import LeftNav from "../components/LeftNav";
 import Thread from "../components/Thread";
 import NewPostForm from "../components/Post/NewPostForm";
 import Log from "../components/Log";
-import Trends from "../components/Trends";
+
 
 function Home() {
   const uid = useContext(UidContext);
@@ -21,7 +21,7 @@ function Home() {
       <div className="right-side">
         <div className="right-side-container">
           <div className="wrapper">
-            <Trends />
+
           </div>
         </div>
       </div>

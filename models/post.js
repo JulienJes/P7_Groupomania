@@ -5,7 +5,7 @@ const postSchema = new mongoose.Schema({
     message: { type: String, trim: true },
     picture: { type: String },
     //video: { type: String },
-    likers: { type: {String}, required: true },
+    likers: { type: [String], required: true },
     comments: { type: [{
             commenterId: String,
             commenterPseudo: String,
