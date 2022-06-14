@@ -68,7 +68,7 @@ function NewPostForm(){
                         onChange={(e) => setMessage(e.target.value)}
                         value={message}
                     />
-                    <label for="message">Publication</label>
+                    <label htmlFor="message">Publication</label>
                     {message || postPicture ? (
                         <li className="card-container">
                             <div className="card-left">
@@ -93,7 +93,7 @@ function NewPostForm(){
                             <>
                                 <img src="./img/icons/picture.svg" alt="upload"/>
                                 <input type="file" id="file-upload" name="file" accept=".jpg, .jpeg, .png" onChange={(e) => handlePicture(e)} />
-                                <label for="file-upload">Image</label>
+                                <label htmlFor="file-upload">Image</label>
                             </>
                         </div>
                         {!isEmpty(error.format) && <p>{error.format}</p>}

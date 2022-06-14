@@ -40,7 +40,7 @@ function SignInForm() {
         <form action="" onSubmit={handleLogin} id="sign-up-form">
             <label htmlFor="email">Email</label> {/*htmlFor est l'équivalent React de for en JS*/}
             <br/>
-            <input type="text" name="email" id="email" onChange={(e) => setEmail(e.target.value)} value={email}/>
+            <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} value={email}/>
             <div className="email error"></div>
             <br/>
             <label htmlFor="password">Mot de passe</label>

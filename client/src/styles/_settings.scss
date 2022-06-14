@@ -56,7 +56,7 @@ textarea {
 button,
 input[type="submit"] {
   background: $color-2;
-  color: $color-1;
+  color: $black;
   font-family: $font-3;
   cursor: pointer;
   transition: 0.2s;
@@ -67,8 +67,8 @@ input[type="submit"] {
   border-radius: 20px 6px 20px 20px;
 
   &:hover {
-    background: $color-1;
-    color: $color-2;
+    background: $color-3;
+    color: $white;
   }
 }
 input[type="checkbox"] {
@@ -103,4 +103,8 @@ h1{
   padding: 0.7em 0 0.7em 0.25em;
   margin : unset;
   line-height: 0;
+}
+
+h2{
+  font-size: 1.17rem;
 }

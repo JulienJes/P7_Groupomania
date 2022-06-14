@@ -21,9 +21,9 @@ exports.createPost = async (req, res, next) => {
     
     if (req.file !== null) {
         try {
-            if (req.file.detectedMimeType !== 'image/jpg' &&
-            req.file.detectedMimeType !== 'image/jpeg' && 
-            req.file.detectedMimeType !== 'image/png') {
+            if (req.file.mimetype !== 'image/jpg' &&
+            req.file.mimetype !== 'image/jpeg' && 
+            req.file.mimetype !== 'image/png') {
                 throw Error("invalid file");
             }
             if (req.filz.size > 500000) {
@@ -40,7 +40,7 @@ exports.createPost = async (req, res, next) => {
         await pipeline(
             req.file.stream,
             fs.createWriteStream(
-                `${__dirname}/../client/public/uplads/posts/${fileName}`
+                `${__dirname}/../client/public/uploads/posts/${fileName}`
             )
         )
     }*/
@@ -135,6 +135,7 @@ exports.likePost = async (req, res, next) => {
             )
         }
         catch (error) {
+            console.log(error)
             return res.status(400).send(error);
         }
     }
@@ -191,7 +192,7 @@ exports.commentPost = (req, res , next) => {
                             commenterId: req.body.commenterId,
                             commentPseudo: req.body.commenterPseudo,
                             text: req.body.text,
-                            timestamp: new Date().getTime()
+                            timestamps: new Date().getTime()
                         }
                     }
                 },

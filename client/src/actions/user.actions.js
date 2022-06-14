@@ -41,7 +41,7 @@ export function updateBio(userId, bio) {
     return(dispatch) => {
         return axios({
             method:"put",
-            url: `${process.env.REACT_APP_API_URL}apu/user/` + userId,
+            url: `${process.env.REACT_APP_API_URL}api/user/` + userId,
             data: { bio }
         })
             .then((res) => {

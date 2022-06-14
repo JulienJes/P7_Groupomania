@@ -7,7 +7,7 @@ const postCtrl = require('../controllers/post.ctrl');
 
 // post-body
 router.get('/', postCtrl.readPost); //route OK
-router.post('/', upload.single("file"), postCtrl.createPost); // version simple ok, problème de la ligne 20 à 46 (ajouter quelque chose dans la requete?)
+router.post('/', upload.single("file"), postCtrl.createPost); // changer multer
 router.put('/:id', postCtrl.updatePost); //route OK
 router.delete('/:id', postCtrl.deletePost); //route OK
 router.patch('/like-post/:id', postCtrl.likePost); //erreur mais ne fait pas planter l'appli et met à jour

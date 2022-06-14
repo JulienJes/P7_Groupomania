@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import getPosts from '../../actions/post.actions';
-import addComment from "../../actions/post.actions";
+import { addComment } from "../../actions/post.actions";
 import { isEmpty, timestampParser } from "../../utils/Utils";
 import EditDeleteComment from "./EditDeleteComment";
 
@@ -10,7 +10,6 @@ function CardComments({ post }) {
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
     const dispatch = useDispatch();
-
 
     const handleComment = (e) => {
         e.preventDefault();
@@ -54,7 +53,7 @@ function CardComments({ post }) {
                                 <div className="pseudo">
                                     <h3>{comment.commenterPseudo}</h3>
                                 </div>
-                                <span>{timestampParser(comment.timestamp)}</span>
+                                <span>{timestampParser(comment.timestamps)}</span>
                             </div>
                             <p>{comment.text}</p>
                             <EditDeleteComment comment={comment} postId={post._id} />

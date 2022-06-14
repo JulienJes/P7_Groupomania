@@ -5,8 +5,8 @@ import { UidContext } from '../AppContext';
 
 function LikeButton({ post }) {
     const [liked, setLiked] = useState(false);
+    const dispatch = useDispatch();
     const uid = useContext(UidContext);
-    const dispatch = useDispatch;
 
     const like = () => {
         dispatch(likePost(post._id, uid))

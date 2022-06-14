@@ -19,28 +19,25 @@ exports.userInfo = (req, res, next) => {
     }).select('-email -password');
 }
 
-exports.updateUser = async (req, res, next) => {
+exports.updateUser = (req, res, next) => {
     if (!ObjectID.isValid(req.params.id)) {
         return res.status(400).json('ID Unknown : ' + req.params.id);
     } else {
         try {
-            await UserModel.findOneAndUpdate(
+            UserModel.findOneAndUpdate(
                 {_id: req.params.id},
                 {$set: {bio: req.body.bio}},
                 {new: true, upsert: true, setDefaultsOnInsert: true},
                 (error, docs) => {
                     if (!error) {
-                        console.log("ici c'est le !error !");
                         return res.status(200).send(docs);
                     } else {
-                        console.log("ici c'est le error !");
                         return res.status(500).json({message : error});
                     }
                 }
             )
         }
         catch (error) {
-            console.log("ici c'est le catch!");
             return res.status(500).send({ message: error });
         }
     }

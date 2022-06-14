@@ -12,7 +12,7 @@ function Card({ post }) {
     const [textUpdate, setTextUpdate] = useState(null);
     const [showComments, setShowComments] = useState(false);
     const usersData = useSelector((state) => state.usersReducer);
-    //const userData = useSelector((state) => state.userReducer);
+    const userData = useSelector((state) => state.userReducer);
     const dispatch = useDispatch();
 
     const updateItem = () => {
@@ -45,7 +45,7 @@ function Card({ post }) {
                     <div className='card-right'>
                         <div className='card-header'>
                             <div className='pseudo'>
-                                <h3>
+                                <h2>
                                     {
                                         !isEmpty(usersData[0]) && usersData.map((user) => {
                                         if(user._id === post.posterId) {
@@ -54,7 +54,7 @@ function Card({ post }) {
                                             return null;
                                         }})
                                     }
-                                </h3>
+                                </h2>
                             </div>
                             <span>{dateParser(post.createdAt)}</span>
                         </div>
@@ -75,10 +75,10 @@ function Card({ post }) {
                         {post.picture && 
                             <img src={post.picture} alt="illustration du post" className="card-pic" />
                         }
-                        {usersData._id === post.posterId && (
-                            <div className='button-container'>
+                        {userData._id === post.posterId && (
+                            <div className="button-container">
                                 <div onClick={() => setIsUpdated(!isUpdated)}>
-                                    <img src='./img/icons/edit.svg' alt='editer' />
+                                <img src="./img/icons/edit.svg" alt="edit" />
                                 </div>
                                 <DeleteCard id={post._id} />
                             </div>

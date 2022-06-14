@@ -47,6 +47,11 @@ nav {
       }
     }
     
+    span {
+      font-family: $font-3;
+      font-weight: bold;
+    }
+
     ul {
       display: flex;
       align-items: center;
@@ -60,11 +65,6 @@ nav {
 
         @media screen and(max-width: 590px) {
           display: none;
-        }
-        
-        span {
-          font-family: $font-3;
-          font-weight: bold;
         }
       }
       
