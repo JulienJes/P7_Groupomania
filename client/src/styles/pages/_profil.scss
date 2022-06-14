@@ -55,10 +55,12 @@
           }
         }
         .active-btn {
-          background: $color-1;
+          background: $color-3;
+          color: $white;
 
           &:hover {
             background: $color-2;
+            color: $black;
           }
         }
         li:not(.active-btn) {
@@ -160,7 +162,7 @@
       img {
         height: 180px;
         width: 180px;
-        border-radius: 46px;
+        border-radius: 90px;
         object-fit: cover;
         margin-bottom: 30px;
         box-shadow: 0 0 6px rgba(51, 51, 51, 0.363);

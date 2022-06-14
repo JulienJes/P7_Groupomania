@@ -11,15 +11,14 @@ exports.uploadProfil = async (req, res) => {
             req.body.userId,
             { $set : {picture: `http://localhost:${process.env.PORT_FRONT}/uploads/profil/` + req.file.filename }},
             { new : true, upsert: true, setDefaultOnInsert: true },
-            (error, docs) => {
-                if (!error) {
-                    return res.send(docs);
-                } else {
-                    return res.status(500).send({ message : error })
-                }
-            }
         )
-    }
+        .then(result => {
+            res.status(200).json(result)
+        })
+        .catch(error => {
+            res.status(400).json("Impossible d'upload")
+        }
+    )}
     catch (error) {
         return res.status(500).send({ message : error })
     }

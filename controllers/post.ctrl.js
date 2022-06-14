@@ -85,11 +85,6 @@ exports.likePost = async (req, res, next) => {
                     $addToSet: { likers: req.body.id }
                 },
                 { new : true },
-                (error, docs) => {
-                    if(error){
-                        return res.status(400).send(error);
-                    }
-                }
             );
             await UserModel.findByIdAndUpdate(
                 req.body.id,
@@ -97,14 +92,8 @@ exports.likePost = async (req, res, next) => {
                     $addToSet: { likes: req.params.id}
                 },
                 { new : true },
-                (error, docs) => {
-                    if(!error) {
-                        res.send(docs);
-                    } else {
-                        return res.status(400).send(error);
-                    }
-                }
             )
+            return res.status(200).send('OK');
         }
         catch (error) {
             console.log(error)
@@ -124,11 +113,6 @@ exports.unLikePost = async (req, res, next) => {
                     $pull: { likers: req.body.id }
                 },
                 { new : true },
-                (error, docs) => {
-                    if(error){
-                        return res.status(400).send(error);
-                    }
-                }
             );
             await UserModel.findByIdAndUpdate(
                 req.body.id,
@@ -136,14 +120,8 @@ exports.unLikePost = async (req, res, next) => {
                     $pull: { likes: req.params.id}
                 },
                 { new : true },
-                (error, docs) => {
-                    if(!error) {
-                        res.send(docs);
-                    } else {
-                        return res.status(400).send(error);
-                    }
-                }
             )
+            return res.status(200).send('OK');
         }
         catch (error) {
             return res.status(400).send(error);

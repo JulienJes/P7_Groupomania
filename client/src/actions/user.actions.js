@@ -20,7 +20,7 @@ export default function getUser(uid) { //récupération des données utilisateur
 export function uploadPicture(data, id) {
     return(dispatch) => {
         return axios
-            .put(`${process.env.REACT_APP_API_URL}api/user/upload/`, data)
+            .put(`${process.env.REACT_APP_API_URL}api/user/upload/${id}`, data)
             .then((res) => {
                 if (res.data.errors) {
                     dispatch({ type: GET_USER_ERRORS, payload: res.data.errors })

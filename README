@@ -11,10 +11,10 @@ TOKEN_SECRET ---------------------
 Renseignez le Token jsonwebtoken de votre choix dans /config/.env.
 
 LANCEMENT DES SEVEURS ---------------------
-Si aucun port n'est renseigné dans /config/.env, le port utilisé pour le back sera 5000 (port recommandé).
+Si aucun port n'est renseigné dans /config/.env, le port utilisé pour le back sera 5000 et 3000 pour le front (ports recommandés).
 
-Renseignez la valeur de votre port dans /config/.env pour avoir un port personnalisé.
-Si vous optez pour un port personnalisé, il faut IMPERATIVEMENT modifier 5000 par la valeur de votre port dans /client/.env.
-De même, si vous souhaitez lancer le front depuis un autre port, modifiez app.js:21 du dossier racine.
+Renseignez les valeurs de vos ports dans /config/.env et dans .env pour avoir des ports personnalisé.
+Si vous optez pour un port personnalisé pour le back, il faut IMPERATIVEMENT modifier 5000 par la valeur de votre port dans /client/.env.
+De même, si vous souhaitez lancer le front depuis un autre port, modifiez /config/.env.
 
 Lancer la commande `npm start` depuis le dossier racine puis depuis /client; l'application apparaitra alors automatiquement dans votre navigateur.

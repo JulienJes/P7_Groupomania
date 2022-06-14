@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+//import user from '../../../../models/user';
 import { updatePost } from '../../actions/post.actions';
 import dateParser, { isEmpty } from '../../utils/Utils';
 import CardComments from './CardComments';
@@ -75,7 +76,7 @@ function Card({ post }) {
                         {post.picture && 
                             <img src={post.picture} alt="illustration du post" className="card-pic" />
                         }
-                        {userData._id === post.posterId && (
+                        {userData._id === post.posterId || userData.admin === true && (
                             <div className="button-container">
                                 <div onClick={() => setIsUpdated(!isUpdated)}>
                                 <img src="./img/icons/edit.svg" alt="edit" />

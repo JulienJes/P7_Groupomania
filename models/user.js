@@ -6,9 +6,10 @@ const userSchema = mongoose.Schema({
     pseudo: { type: String, required: true, unique: true , minlength: 3 },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true, minlength: 8 },
-    picture: {type: String, default: "../client/public/img/default-user-pic.png"},
+    picture: {type: String, default: `http://localhost:${process.env.PORT_FRONT}/uploads/profil/default-user-pic.png` },
     bio: {type: String, maxlenght: 1024 },
     likes: { type: [String] },
+    admin: { type: Boolean, default: false}
   },
   {
     timestamps: true,

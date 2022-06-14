@@ -5,16 +5,16 @@ const multer = require('../middleware/multer-config');
 const postCtrl = require('../controllers/post.ctrl');
 
 // post-body
-router.get('/', postCtrl.readPost); //route OK
+router.get('/', postCtrl.readPost);
 router.post('/', multer.single("posts"), postCtrl.createPost); 
-router.put('/:id', postCtrl.updatePost); //route OK
-router.delete('/:id', postCtrl.deletePost); //route OK
-router.patch('/like-post/:id', postCtrl.likePost); //erreur mais ne fait pas planter l'appli et met à jour
-router.patch('/unlike-post/:id', postCtrl.unLikePost); //erreur mais ne fait pas planter l'appli et met à jour
+router.put('/:id', postCtrl.updatePost);
+router.delete('/:id', postCtrl.deletePost);
+router.patch('/like-post/:id', postCtrl.likePost);
+router.patch('/unlike-post/:id', postCtrl.unLikePost);
 
 // post-comments
-router.patch('/comment-post/:id', postCtrl.commentPost); //route ok mais timestamp???
-router.patch('/edit-comment-post/:id', postCtrl.editCommentPost); //est-ce que je m'y prends bien?
-router.patch('/delete-comment-post/:id', postCtrl.deleteCommentPost); //est-ce que je m'y prends bien?
+router.patch('/comment-post/:id', postCtrl.commentPost);
+router.patch('/edit-comment-post/:id', postCtrl.editCommentPost);
+router.patch('/delete-comment-post/:id', postCtrl.deleteCommentPost);
 
 module.exports = router;
