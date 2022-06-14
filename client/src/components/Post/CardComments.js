@@ -51,7 +51,12 @@ function CardComments({ post }) {
                         <div className="right-part">
                             <div className="comment-header">
                                 <div className="pseudo">
-                                    <h3>{comment.commenterPseudo}</h3>
+                                <h3>
+                                    {usersData.map((user) => {
+                                        if(user._id === comment.commenterId) {
+                                        return user.pseudo
+                                    }})}
+                                </h3>
                                 </div>
                                 <span>{timestampParser(comment.timestamps)}</span>
                             </div>
