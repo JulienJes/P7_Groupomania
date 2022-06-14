@@ -44,6 +44,12 @@ exports.createPost = async (req, res, next) => {
             )
         )
     }*/
+    const postObject = JSON.parse(req.body.sauce);
+    delete postObject._id;
+    const post = new Sauce({
+        ...postObject,
+        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+    });
 
     const newPost = new PostModel( {
         posterId: req.body.posterId,

@@ -3,6 +3,7 @@ dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const userRoutes = require('./routes/user.routes');
 const postRoutes = require('./routes/post.routes');
@@ -24,6 +25,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // Parsers
 app.use(express.json());
