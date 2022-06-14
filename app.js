@@ -26,7 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/images', express.static(path.join(__dirname, 'images')));
+// Uploads
+app.use('../client/public/uploads/', express.static(path.join(__dirname, 'images')));
 
 // Parsers
 app.use(express.json());

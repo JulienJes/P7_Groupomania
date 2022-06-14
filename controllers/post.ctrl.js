@@ -17,6 +17,7 @@ exports.readPost = (req, res, next) => {
 }
 
 exports.createPost = async (req, res, next) => {
+    console.log(req.body)
     /*let fileName;
     
     if (req.file !== null) {
@@ -44,12 +45,11 @@ exports.createPost = async (req, res, next) => {
             )
         )
     }*/
-    const postObject = JSON.parse(req.body.sauce);
-    delete postObject._id;
-    const post = new Sauce({
+    /*const postObject = JSON.parse(req.body);
+    const newpost = new PostModel({
         ...postObject,
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-    });
+    });*/
 
     const newPost = new PostModel( {
         posterId: req.body.posterId,
