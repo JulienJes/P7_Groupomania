@@ -72,18 +72,6 @@ exports.deletePost = (req, res, next) => {
                     .catch(error => res.status(400).json({ error }));
             });
         })
-        
-        
-        /*PostModel.findByIdAndRemove(
-            req.params.id,
-            (error, docs) => {
-                if (!error) {
-                    res.send(docs);
-                } else {
-                    console.log("Delete error " + error);
-                }
-            }
-        )*/
     }
 }
 
