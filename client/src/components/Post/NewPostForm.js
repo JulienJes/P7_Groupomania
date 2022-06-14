@@ -25,7 +25,7 @@ function NewPostForm(){
             data.append("posterId", userData._id);
             data.append("message", message);
             if(file) {
-                data.append("file", file);
+                data.append("posts", file);
             }
 
             await dispatch(addPost(data));

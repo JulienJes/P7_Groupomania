@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const upload = multer();
+const multer = require('../middleware/multer-config');
 
 const authCtrl = require('../controllers/auth.ctrl');
 const userCtrl = require('../controllers/user.ctrl');
@@ -19,6 +18,6 @@ router.put('/:id', userCtrl.updateUser); //fait planter l'application, ERR_HTTP_
 router.delete('/:id', userCtrl.deleteUser); //route OK
 
 // Upload
-//router.post('/upload', upload.single('file') , uploadCtrl.uploadProfil)
+router.put('/upload', multer.single("profil") , uploadCtrl.uploadProfil)
 
 module.exports = router;

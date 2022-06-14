@@ -15,7 +15,7 @@ function UpdateProfil() {
 
     const handleUpdate = () => {
         dispatch(updateBio(userData._id, bio));
-        setUpdateForm(false); //vérifier si elle était true?
+        setUpdateForm(false);
     }
 
     return(

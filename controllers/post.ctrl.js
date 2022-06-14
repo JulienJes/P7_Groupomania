@@ -17,44 +17,10 @@ exports.readPost = (req, res, next) => {
 }
 
 exports.createPost = async (req, res, next) => {
-    console.log(req.body)
-    /*let fileName;
-    
-    if (req.file !== null) {
-        try {
-            if (req.file.mimetype !== 'image/jpg' &&
-            req.file.mimetype !== 'image/jpeg' && 
-            req.file.mimetype !== 'image/png') {
-                throw Error("invalid file");
-            }
-            if (req.filz.size > 500000) {
-                throw Error("max size");
-            }
-        }
-        catch (error) {
-            const errors = uploadErrors(error);
-            return res.status(400).json(errors);
-        }
-    
-        fileName = req.body.posterId + Date.now() + '.jpg';
-
-        await pipeline(
-            req.file.stream,
-            fs.createWriteStream(
-                `${__dirname}/../client/public/uploads/posts/${fileName}`
-            )
-        )
-    }*/
-    /*const postObject = JSON.parse(req.body);
-    const newpost = new PostModel({
-        ...postObject,
-        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-    });*/
-
     const newPost = new PostModel( {
         posterId: req.body.posterId,
         message: req.body.message,
-        //picture: req.file !== null ? "./uploads/posts/" + fileName : "",
+        picture: req.file !== null ? `http://localhost:${process.env.PORT_FRONT}/uploads/posts/` + req.file.filename : "",
         //video: req.body.video,
         likers: [],
         comments: [],

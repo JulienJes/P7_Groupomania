@@ -12,7 +12,7 @@ const userData = useSelector((state) => state.userReducer);
         const data = new FormData();
         data.append("name", userData.pseudo);
         data.append("userId", userData._id);
-        data.append("file", file);
+        data.append("profil", file);
 
         dispatch(uploadPicture(data, userData._id));
     }
