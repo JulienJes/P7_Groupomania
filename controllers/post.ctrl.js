@@ -2,9 +2,7 @@ const PostModel = require('../models/post');
 const UserModel = require('../models/user');
 const ObjectID = require('mongoose').Types.ObjectId; // pour vérifier que le paramêtre existe déjà dans la BDD
 const { uploadErrors } = require('../utils/errors.utils');
-const fs = require('fs')
-const {promisify} = require('util');
-const pipeline = promisify(require('stream').pipeline);
+const fs = require('fs');
 
 exports.readPost = (req, res, next) => {
     PostModel.find((error, docs) => {
@@ -20,7 +18,7 @@ exports.createPost = async (req, res, next) => {
     const newPost = new PostModel( {
         posterId: req.body.posterId,
         message: req.body.message,
-        picture: req.file !== null ? `http://localhost:${process.env.PORT_FRONT}/uploads/posts/` + req.file.filename : "",
+        picture: req.file !== undefined ? `http://localhost:${process.env.PORT_FRONT}/uploads/posts/` + req.file.filename : "",
         //video: req.body.video,
         likers: [],
         comments: [],
@@ -61,7 +59,22 @@ exports.deletePost = (req, res, next) => {
     if (!ObjectID.isValid(req.params.id)) {
         return res.status(400).json('ID Unknown : ' + req.params.id);
     } else {
-        PostModel.findByIdAndRemove(
+        PostModel.findOne({ _id : req.params.id})
+        .then((post) => {
+            if (!post) {
+                res.status(404).json({error: new Error('Post non trouvé !')});
+              }
+            const filename = post.picture.split('/posts/')[1];
+            
+            fs.unlink(`./client/public/uploads/posts/${filename}`, () => {
+                PostModel.deleteOne({ _id: req.params.id }) 
+                    .then(() => res.status(200).json({ message: 'Post supprimé !'}))
+                    .catch(error => res.status(400).json({ error }));
+            });
+        })
+        
+        
+        /*PostModel.findByIdAndRemove(
             req.params.id,
             (error, docs) => {
                 if (!error) {
@@ -70,7 +83,7 @@ exports.deletePost = (req, res, next) => {
                     console.log("Delete error " + error);
                 }
             }
-        )
+        )*/
     }
 }
 

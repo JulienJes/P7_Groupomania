@@ -76,14 +76,22 @@ function Card({ post }) {
                         {post.picture && 
                             <img src={post.picture} alt="illustration du post" className="card-pic" />
                         }
-                        {userData._id === post.posterId || userData.admin === true && (
-                            <div className="button-container">
-                                <div onClick={() => setIsUpdated(!isUpdated)}>
-                                <img src="./img/icons/edit.svg" alt="edit" />
+                        {userData.admin ?
+                                <div className="button-container">
+                                    <div onClick={() => setIsUpdated(!isUpdated)}>
+                                        <img src="./img/icons/edit.svg" alt="edit" />
+                                    </div>
+                                    <DeleteCard id={post._id} />
                                 </div>
-                                <DeleteCard id={post._id} />
-                            </div>
-                        )}
+                                :
+                                userData._id === post.posterId && (
+                                    <div className="button-container">
+                                        <div onClick={() => setIsUpdated(!isUpdated)}>
+                                            <img src="./img/icons/edit.svg" alt="edit" />
+                                        </div>
+                                        <DeleteCard id={post._id} />
+                                    </div>
+                                )}
                         <div className='card-footer'>
                             <div className='comment-icon'>
                                 <img
