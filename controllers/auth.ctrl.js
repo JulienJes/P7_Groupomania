@@ -10,7 +10,7 @@ const createToken = (id) => {
 };
 
 exports.signUp = async (req, res, next) => {
-    console.log(req.body);
+    req.body.email = req.body.email.toLowerCase();
     const {pseudo, email, password} = req.body;
 
     try {
@@ -24,12 +24,13 @@ exports.signUp = async (req, res, next) => {
 }
 
 exports.signIn = async (req, res, next) => {
+    req.body.email = req.body.email.toLowerCase();
     const {email, password} = req.body;
 
     try {
         const user = await UserModel.login(email, password);
         const token = createToken(user._id);
-        res.cookie('jwt', token, {httpOnly: true, maxAge, sameSite: 'None'});
+        res.cookie('jwt', token, {httpOnly: true, maxAge});
         res.status(200).json("user:" + user._id);
     } catch (error) {
         const errors = signInErrors(error);
