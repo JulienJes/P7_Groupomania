@@ -7,7 +7,7 @@ exports.checkUser = (req, res, next) => {
         jwt.verify(token, process.env.TOKEN_SECRET, async (error, decodedToken) => {
             if(error) { //Si il y a une erreur on retire le cookie
                 res.locals.user = null;
-                // res.cookie('jwt', '', { maxAge: 1 }); semble supprimer le cookie à la moindre erreur, donc on laisse le front s'en charger
+                // res.cookie('jwt', '', { maxAge: 1 }); on laisse le front s'en charger
                 next();
             } else {
                 let user = await UserModel.findById(decodedToken.id);

@@ -44,7 +44,7 @@ export function addPost(data) {
                     dispatch({ type: GET_POST_ERRORS, payload: '' })
                 }
             })
-    }
+    } 
 }
 
 export function likePost(postId, userId) {
