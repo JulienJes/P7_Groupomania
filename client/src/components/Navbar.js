@@ -24,17 +24,19 @@ function Navbar() {
                     <ul>
                         <li></li>
                         <li className="welcome"></li>
-                        <NavLink exact="true" to="/profil">
+                        <li><NavLink exact="true" to="/profil">
                             <span>Bienvenue {userData.pseudo}</span>
                         </NavLink>
+                        </li>
                         <Logout />
                     </ul>
                 ) : (
                     <ul>
                         <li></li>
-                        <NavLink exact="true" to="/profil">
+                        <li><NavLink exact="true" to="/profil">
                             <img src="./img/icons/login.svg" alt="Login"/>
                         </NavLink>
+                        </li>
                     </ul>
                 )}
             </div>
