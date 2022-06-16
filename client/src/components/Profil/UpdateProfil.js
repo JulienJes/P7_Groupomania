@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateBio } from '../../actions/user.actions';
 import UploadImg from './UploadImg';
-import errorReducer from '../../reducers/error.reducer';
+//import errorReducer from '../../reducers/error.reducer';
 import dateParser from '../../utils/Utils.js';
 import LeftNav from '../LeftNav';
 
@@ -10,7 +10,7 @@ function UpdateProfil() {
     const userData = useSelector((state) => state.userReducer)
     const [bio, setBio] = useState('');
     const [updateForm, setUpdateForm] = useState(false);
-    const error = useSelector((state) => state.errorReducer.userError);
+    //const error = useSelector((state) => state.errorReducer.userError);
     const dispatch = useDispatch();
 
     const handleUpdate = () => {
@@ -27,8 +27,8 @@ function UpdateProfil() {
                     <h3>Photo de profil</h3>
                     <img src={userData.picture} alt="Avatar"/>
                     <UploadImg />
-                    <p>{error.format}</p>
-                    <p>{error.maxSize}</p>
+                    {/*<p>{error.format}</p>*/}
+                    {/*<p>{error.maxSize}</p>*/}
                 </div>
                 <div className='right-part'>
                     <h3>Bio</h3>
