@@ -1,7 +1,7 @@
 const PostModel = require('../models/post');
 const UserModel = require('../models/user');
 const ObjectID = require('mongoose').Types.ObjectId; // pour vérifier que le paramêtre existe déjà dans la BDD
-const { uploadErrors } = require('../utils/errors.utils');
+//const { uploadErrors } = require('../utils/errors.utils');
 const fs = require('fs');
 
 exports.readPost = (req, res, next) => {
