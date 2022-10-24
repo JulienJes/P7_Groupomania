@@ -50,7 +50,7 @@ function SignUpForm() {
                 <>
                 <SignInForm />
                 <span></span>
-                <h4 className="sucess">Vous pouvez vous connecter!</h4>
+                <h4 className="success">Vous pouvez vous connecter!</h4>
                 </>
             ) : (
                 <form action="" onSubmit={handleRegister} id="sign-up-form">
