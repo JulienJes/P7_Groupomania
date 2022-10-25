@@ -32,15 +32,18 @@ function SignUpForm() {
             })
             .then((res) => {
                 console.log(res);
-                if(res.data.errors) {
-                    pseudoError.innerHTML = res.data.errors.pseudo;
-                    emailError.innerHTML = res.data.errors.email;
-                    passwordError.innerHTML = res.data.errors.password;
-                } else {
+                if (res.data.errors) {
+                    
+                } else{
                     setFormSubmit(true);
                 }
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+                console.log(error)
+                pseudoError.innerHTML = error.response.data.errors.pseudo;
+                emailError.innerHTML = error.response.data.errors.email;
+                passwordError.innerHTML = error.response.data.errors.password;
+            });
         }
     }
 

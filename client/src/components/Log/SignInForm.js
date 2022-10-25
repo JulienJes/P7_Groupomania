@@ -24,15 +24,15 @@ function SignInForm() {
         })
         .then((res) =>{
             if(res.data.errors) {
-                console.log(res.data);
-                emailError.innerHTML = res.data.errors.email;
-                passwordError.innerHTML = res.data.errors.password;
+                
             } else {
                 window.location = '/';
             }
         })
         .catch((error) => {
             console.log(error);
+                emailError.innerHTML = error.response.data.errors.email;
+                passwordError.innerHTML = error.response.data.errors.password;
         })
     }
 

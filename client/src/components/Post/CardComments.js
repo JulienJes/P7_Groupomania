@@ -18,6 +18,8 @@ function CardComments({ post }) {
           dispatch(addComment(post._id, userData._id, text, userData.pseudo))
             .then(() => dispatch(getPosts()))
             .then(() => setText(''));
+        } else {
+            alert("Veuillez entrer un commentaire");
         }
     }
 
