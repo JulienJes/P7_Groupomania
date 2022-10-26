@@ -10,9 +10,6 @@ function SignInForm() {
         const emailError = document.querySelector('.email.error');
         const passwordError = document.querySelector('.password.error');
 
-        emailError.innerHTML = ""; //pas obligatoire?
-        passwordError.innerHTML = ""; //pas obligatoire?
-
         axios({
             method: "post",
             url: `${process.env.REACT_APP_API_URL}api/user/login`,

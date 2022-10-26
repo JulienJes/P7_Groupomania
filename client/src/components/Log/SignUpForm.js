@@ -16,8 +16,6 @@ function SignUpForm() {
         const passwordError = document.querySelector('.password.error');
         const passwordConfirmError = document.querySelector('.password-confirm.error');
 
-        passwordConfirmError.innerHTML = "";
-
         if(password !== controlPassword) {
             passwordConfirmError.innerHTML = "Les mots de passe ne correspondent pas";
         } else {
@@ -40,9 +38,9 @@ function SignUpForm() {
             })
             .catch((error) => {
                 console.log(error)
-                pseudoError.innerHTML = error.response.data.errors.pseudo;
-                emailError.innerHTML = error.response.data.errors.email;
-                passwordError.innerHTML = error.response.data.errors.password;
+                    pseudoError.innerHTML = error.response.data.errors.pseudo;
+                    emailError.innerHTML = error.response.data.errors.email;
+                    passwordError.innerHTML = error.response.data.errors.password;
             });
         }
     }
