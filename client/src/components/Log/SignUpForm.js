@@ -17,7 +17,7 @@ function SignUpForm() {
         const passwordConfirmError = document.querySelector('.password-confirm.error');
 
         if(password !== controlPassword) {
-            passwordConfirmError.innerHTML = "Les mots de passe ne correspondent pas";
+            passwordConfirmError.textContent = "Les mots de passe ne correspondent pas";
         } else {
             await axios({
                 method: "post",
@@ -38,9 +38,9 @@ function SignUpForm() {
             })
             .catch((error) => {
                 console.log(error)
-                    pseudoError.innerHTML = error.response.data.errors.pseudo;
-                    emailError.innerHTML = error.response.data.errors.email;
-                    passwordError.innerHTML = error.response.data.errors.password;
+                    pseudoError.textContent = error.response.data.errors.pseudo;
+                    emailError.textContent = error.response.data.errors.email;
+                    passwordError.textContent = error.response.data.errors.password;
             });
         }
     }

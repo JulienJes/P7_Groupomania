@@ -28,8 +28,8 @@ function SignInForm() {
         })
         .catch((error) => {
             console.log(error);
-                emailError.innerHTML = error.response.data.errors.email;
-                passwordError.innerHTML = error.response.data.errors.password;
+                emailError.textContent = error.response.data.errors.email;
+                passwordError.textContent = error.response.data.errors.password;
         })
     }
 
